@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Shandy Blue Canaria — IT Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Outfit:wght@300;400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --void:#0d0520;--deep:#120828;--layer:#1a0d35;--panel:#1e1040;
+  --p1:#7c3aed;--p2:#a855f7;--p3:#c084fc;--p4:#e879f9;
+  --pink:#f472b6;--cyan:#67e8f9;--gold:#fbbf24;--green:#4ade80;--rose:#fb7185;
+  --text:#f0e6ff;--dim:#9d7ec9;--dimmer:#5a4080;
+  --hf:'Cinzel',serif;--hm:'Share Tech Mono',monospace;--hb:'Outfit',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--void);color:var(--text);font-family:var(--hb);overflow-x:hidden}
+
+.cosmic-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.cb-grad{position:absolute;inset:0;background:
+  radial-gradient(ellipse 90% 70% at 60% -10%,rgba(124,58,237,.35) 0%,transparent 55%),
+  radial-gradient(ellipse 60% 50% at -10% 60%,rgba(168,85,247,.2) 0%,transparent 50%),
+  radial-gradient(ellipse 50% 60% at 100% 80%,rgba(192,132,252,.15) 0%,transparent 50%)}
+.stars{position:absolute;inset:0}
+.stars::before,.stars::after{content:'';position:absolute;inset:0;background-image:
+  radial-gradient(1px 1px at 10% 15%,rgba(255,255,255,.8) 0%,transparent 100%),
+  radial-gradient(1px 1px at 25% 40%,rgba(255,255,255,.6) 0%,transparent 100%),
+  radial-gradient(1px 1px at 45% 8%,rgba(255,255,255,.9) 0%,transparent 100%),
+  radial-gradient(1px 1px at 70% 25%,rgba(255,255,255,.7) 0%,transparent 100%),
+  radial-gradient(1.5px 1.5px at 85% 12%,rgba(200,180,255,.9) 0%,transparent 100%),
+  radial-gradient(1px 1px at 92% 45%,rgba(255,255,255,.6) 0%,transparent 100%),
+  radial-gradient(1px 1px at 5% 70%,rgba(255,255,255,.7) 0%,transparent 100%),
+  radial-gradient(1.5px 1.5px at 30% 80%,rgba(200,180,255,.8) 0%,transparent 100%),
+  radial-gradient(1px 1px at 55% 65%,rgba(255,255,255,.5) 0%,transparent 100%),
+  radial-gradient(1px 1px at 78% 72%,rgba(255,255,255,.7) 0%,transparent 100%),
+  radial-gradient(2px 2px at 40% 30%,rgba(232,121,249,.7) 0%,transparent 100%),
+  radial-gradient(1.5px 1.5px at 88% 60%,rgba(103,232,249,.6) 0%,transparent 100%)}
+.stars::after{animation:twinkle 6s ease-in-out infinite alternate;background-image:
+  radial-gradient(1px 1px at 15% 20%,rgba(255,255,255,.5) 0%,transparent 100%),
+  radial-gradient(1px 1px at 35% 55%,rgba(255,255,255,.6) 0%,transparent 100%),
+  radial-gradient(1.5px 1.5px at 72% 18%,rgba(255,255,255,.8) 0%,transparent 100%),
+  radial-gradient(1px 1px at 95% 30%,rgba(200,180,255,.7) 0%,transparent 100%),
+  radial-gradient(2px 2px at 22% 92%,rgba(168,85,247,.5) 0%,transparent 100%),
+  radial-gradient(1px 1px at 60% 50%,rgba(255,255,255,.4) 0%,transparent 100%)}
+@keyframes twinkle{0%{opacity:.5}100%{opacity:1}}
+.orb{position:absolute;border-radius:50%;filter:blur(1px)}
+.orb1{width:90px;height:90px;background:radial-gradient(circle at 35% 35%,#c084fc,#7c3aed,#1a0d35);top:8%;right:12%;box-shadow:0 0 30px rgba(192,132,252,.4);animation:drift 8s ease-in-out infinite}
+.orb2{width:55px;height:55px;background:radial-gradient(circle at 30% 30%,#fb923c,#dc2626,#1a0d35);top:22%;right:30%;box-shadow:0 0 20px rgba(251,146,60,.3);animation:drift 6s ease-in-out infinite reverse;animation-delay:-2s}
+.orb3{width:110px;height:110px;background:radial-gradient(circle at 30% 30%,#34d399,#059669,#0d0520);bottom:15%;left:3%;box-shadow:0 0 30px rgba(52,211,153,.18);animation:drift 10s ease-in-out infinite;animation-delay:-4s}
+.orb4{width:40px;height:40px;background:radial-gradient(circle at 30% 30%,#67e8f9,#0891b2,#0d0520);top:55%;right:6%;box-shadow:0 0 15px rgba(103,232,249,.3);animation:drift 7s ease-in-out infinite;animation-delay:-1s}
+.deco-ufo{position:absolute;top:2%;right:4%;font-size:64px;animation:ufo 5s ease-in-out infinite;filter:drop-shadow(0 0 18px rgba(168,85,247,.5))}
+@keyframes ufo{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-16px) rotate(3deg)}}
+.deco-rocket{position:absolute;top:42%;left:2%;font-size:34px;animation:drift 7s ease-in-out infinite;opacity:.6;filter:drop-shadow(0 0 8px rgba(251,191,36,.4))}
+@keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:11px 40px;background:rgba(13,5,32,.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(168,85,247,.15)}
+.nav-logo{font-family:var(--hf);font-size:13px;font-weight:900;text-decoration:none;letter-spacing:2px;background:linear-gradient(90deg,var(--p3),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;gap:2px}
+.nav-links a{font-family:var(--hm);font-size:9px;color:var(--dim);text-decoration:none;padding:5px 11px;border-radius:20px;letter-spacing:1.5px;transition:all .2s;text-transform:uppercase}
+.nav-links a:hover{color:var(--text);background:rgba(168,85,247,.15)}
+.nav-cta{font-family:var(--hm);font-size:9px;padding:6px 15px;border-radius:20px;background:linear-gradient(90deg,var(--p1),var(--p2));color:#fff;letter-spacing:1.5px;text-decoration:none;text-transform:uppercase;box-shadow:0 0 14px rgba(124,58,237,.35);display:flex;align-items:center;gap:6px}
+.nav-cta::before{content:'';width:6px;height:6px;border-radius:50%;background:#4ade80;box-shadow:0 0 6px #4ade80;animation:sdot 2s ease-in-out infinite;flex-shrink:0}
+@keyframes sdot{0%,100%{opacity:1}50%{opacity:.25}}
+
+#hero{padding-top:58px;padding-bottom:52px;padding-left:40px;padding-right:40px;display:grid;grid-template-columns:1fr 300px;align-items:center;gap:32px;position:relative;z-index:1;overflow:hidden;min-height:100vh}
+.hero-sparkle{position:absolute;font-size:13px;animation:sparkle 3s ease-in-out infinite;opacity:.5;pointer-events:none}
+.sp1{top:18%;left:40%}.sp2{top:32%;left:58%;animation-delay:.9s}.sp3{top:68%;left:44%;animation-delay:1.8s}.sp4{top:20%;left:72%;animation-delay:2.7s}
+@keyframes sparkle{0%,100%{transform:scale(1) rotate(0);opacity:.3}50%{transform:scale(1.5) rotate(20deg);opacity:1}}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;font-family:var(--hm);font-size:9px;letter-spacing:2px;color:var(--p3);border:1px solid rgba(192,132,252,.28);background:rgba(192,132,252,.06);padding:5px 13px;border-radius:20px;margin-bottom:14px;text-transform:uppercase}
+.hero-badge::before{content:'✦';color:var(--gold);animation:spin 4s linear infinite;display:inline-block}
+h1.hn{font-family:var(--hf);font-weight:900;font-size:clamp(36px,5vw,64px);line-height:1.0;margin-bottom:4px}
+h1.hn .l1{display:block;font-size:.5em;font-family:var(--hm);letter-spacing:3px;color:var(--dim);margin-bottom:4px}
+h1.hn .l2{display:block;background:linear-gradient(100deg,#f472b6,#c084fc,#67e8f9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+h1.hn .l3{display:block;font-size:.35em;color:var(--dimmer);letter-spacing:4px;font-family:var(--hm);margin-top:6px}
+.hero-sub{font-size:13px;line-height:1.8;color:var(--dim);margin:16px 0 22px;max-width:450px;padding-left:12px;border-left:2px solid rgba(192,132,252,.28)}
+.hero-sub strong{color:var(--p3)}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.hbtn{font-family:var(--hm);font-size:10px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;padding:10px 20px;border-radius:8px;cursor:pointer;border:none;transition:all .2s}
+.hbtn-fill{background:linear-gradient(90deg,var(--p1),var(--p2));color:#fff;box-shadow:0 0 16px rgba(124,58,237,.35)}
+.hbtn-fill:hover{box-shadow:0 0 26px rgba(168,85,247,.55);transform:translateY(-2px)}
+.hbtn-out{background:rgba(192,132,252,.06);color:var(--p3);border:1px solid rgba(192,132,252,.22)}
+.hbtn-out:hover{background:rgba(192,132,252,.12);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:18px;flex-wrap:wrap}
+.hstat{text-align:center}
+.hstat-n{font-family:var(--hf);font-size:20px;font-weight:700;background:linear-gradient(90deg,var(--pink),var(--p3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.hstat-l{font-family:var(--hm);font-size:8px;color:var(--dimmer);letter-spacing:1.5px;text-transform:uppercase;margin-top:3px}
+.hstat-sep{width:1px;background:rgba(192,132,252,.15);align-self:stretch}
+.hero-cards{display:flex;flex-direction:column;align-items:center;gap:11px;position:relative;z-index:2}
+.hcard{border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.1);box-shadow:0 8px 28px rgba(0,0,0,.5);position:relative;display:flex;align-items:center;justify-content:center;font-size:32px}
+.hcard-lg{width:150px;height:168px;animation:fl 5s ease-in-out infinite}
+.hcard-sm{width:115px;height:134px;animation:fl 4.5s ease-in-out infinite}
+.hcard:nth-child(2){animation-delay:-1.8s;align-self:flex-end}
+.hcard:nth-child(3){animation-delay:-3.6s;align-self:flex-start}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.hc1{background:linear-gradient(145deg,#2d1b69,#5b21b6,#7c3aed,#be185d)}
+.hc2{background:linear-gradient(145deg,#1e3a5f,#1d4ed8,#7c3aed,#0e7490)}
+.hc3{background:linear-gradient(145deg,#14532d,#15803d,#065f46,#1e3a5f)}
+.hcard-scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 4px,rgba(255,255,255,.02) 4px,rgba(255,255,255,.02) 5px)}
+.hcard-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.38) 0%,transparent 50%)}
+.hcard-label{position:absolute;bottom:9px;left:0;right:0;text-align:center;font-family:var(--hm);font-size:8px;letter-spacing:2px;color:rgba(255,255,255,.55);text-transform:uppercase}
+
+section{padding:56px 40px;position:relative;z-index:1}
+.sh{margin-bottom:32px}
+.sn{font-family:var(--hm);font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--pink);display:block;margin-bottom:7px}
+.st{font-family:var(--hf);font-size:clamp(20px,2.8vw,32px);font-weight:700;letter-spacing:1px;line-height:1.15}
+.st em{background:linear-gradient(90deg,var(--pink),var(--p3),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal}
+.sdesc{font-size:12.5px;color:var(--dim);line-height:1.7;margin-top:8px;max-width:580px}
+.sline{display:flex;align-items:center;gap:8px;margin-top:9px}
+.sline-bar{width:55px;height:1px;background:linear-gradient(90deg,var(--p2),transparent)}
+.sline-dot{width:4px;height:4px;background:var(--pink);transform:rotate(45deg);flex-shrink:0}
+
+#about{background:linear-gradient(180deg,var(--void),var(--deep))}
+.about-grid{display:grid;grid-template-columns:1.4fr 0.6fr;gap:20px}
+.about-main{background:rgba(255,255,255,.022);border:1px solid rgba(168,85,247,.12);border-radius:14px;padding:26px;position:relative;overflow:hidden}
+.about-main::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--p2),var(--pink),var(--cyan),transparent)}
+.ag{position:absolute;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,.1) 0%,transparent 70%);top:-50px;right:-30px;filter:blur(20px);pointer-events:none}
+.av-row{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.av{width:68px;height:68px;border-radius:13px;background:linear-gradient(135deg,var(--p1),var(--p2),var(--pink));display:flex;align-items:center;justify-content:center;font-family:var(--hf);font-size:17px;font-weight:900;color:#fff;flex-shrink:0;box-shadow:0 0 16px rgba(124,58,237,.3)}
+.av-name{font-family:var(--hf);font-size:12px;font-weight:700;color:#fff;letter-spacing:1px;margin-bottom:3px}
+.av-role{font-family:var(--hm);font-size:9px;color:var(--pink);letter-spacing:2px}
+.gbadge{display:inline-flex;align-items:center;gap:5px;background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.18);color:var(--gold);font-family:var(--hm);font-size:8px;letter-spacing:2px;padding:3px 10px;border-radius:20px;margin-bottom:13px;text-transform:uppercase}
+.bio{font-size:12.5px;line-height:1.8;color:var(--dim);margin-bottom:8px;padding-left:10px;border-left:1px solid rgba(168,85,247,.22)}
+.bio strong{color:var(--p3)}
+.dets{margin-top:13px;display:flex;flex-direction:column;gap:7px}
+.det{display:grid;grid-template-columns:66px 1fr;gap:6px;font-family:var(--hm);font-size:10px}
+.dk{color:var(--pink)}
+.dv{color:var(--dim)}
+.dv a{color:var(--cyan);text-decoration:none}
+.dv a:hover{opacity:.7}
+.stat-stack{display:flex;flex-direction:column;gap:10px}
+.asc{background:rgba(255,255,255,.02);border:1px solid rgba(168,85,247,.09);border-radius:12px;padding:14px;text-align:center;transition:transform .2s,border-color .2s;display:flex;flex-direction:column;align-items:center;gap:5px}
+.asc:hover{transform:translateY(-2px);border-color:rgba(192,132,252,.28)}
+.asc-ic{font-size:22px}
+.asc-label{font-family:var(--hm);font-size:8px;color:var(--dim);letter-spacing:1.5px;text-transform:uppercase;text-align:center;line-height:1.4}
+
+#skills{background:var(--void)}
+.sk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:10px}
+.skc{background:rgba(255,255,255,.02);border:1px solid rgba(168,85,247,.08);border-radius:12px;padding:13px;transition:transform .2s,border-color .2s;cursor:default;position:relative;overflow:hidden}
+.skc::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--p2),transparent);opacity:0;transition:opacity .3s}
+.skc:hover{transform:translateY(-3px);border-color:rgba(192,132,252,.24)}
+.skc:hover::after{opacity:1}
+.sk-ic{font-size:16px;margin-bottom:7px;display:block}
+.sk-nm{font-family:var(--hm);font-size:10px;color:var(--text);margin-bottom:7px}
+.sk-bar{height:3px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden}
+.sk-fill{height:100%;border-radius:2px;animation:bfill 1.5s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes bfill{from{width:0}}
+.sk-foot{display:flex;justify-content:space-between;margin-top:5px}
+.sk-p{font-family:var(--hm);font-size:8px;color:var(--dimmer)}
+.sk-tag{font-family:var(--hm);font-size:8px}
+
+#projects{background:linear-gradient(180deg,var(--void),var(--deep))}
+.pj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.pjc{background:rgba(255,255,255,.022);border:1px solid rgba(168,85,247,.1);border-radius:14px;overflow:hidden;transition:transform .2s,border-color .2s;position:relative}
+.pjc:hover{transform:translateY(-3px);border-color:rgba(192,132,252,.28)}
+.pjc::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--p2),transparent);opacity:0;transition:opacity .25s}
+.pjc:hover::before{opacity:1}
+.pj-thumb{height:130px;display:flex;align-items:center;justify-content:center;font-size:42px;position:relative;overflow:hidden}
+.pj-scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,.02) 3px,rgba(255,255,255,.02) 4px)}
+.pj-lock{position:absolute;top:10px;right:10px;background:rgba(13,5,32,.75);border:1px solid rgba(90,64,128,.4);border-radius:20px;font-family:var(--hm);font-size:8px;letter-spacing:1.5px;color:var(--dimmer);padding:3px 9px;text-transform:uppercase;display:flex;align-items:center;gap:4px;backdrop-filter:blur(4px)}
+.pj-body{padding:15px 16px 17px}
+.pj-title{font-family:var(--hf);font-size:12px;font-weight:700;color:#fff;letter-spacing:.8px;margin-bottom:3px}
+.pj-sub{font-family:var(--hm);font-size:9px;color:var(--pink);letter-spacing:1px;margin-bottom:7px}
+.pj-desc{font-size:11.5px;color:var(--dim);line-height:1.65;font-family:var(--hm)}
+.pj-tags{display:flex;gap:5px;margin-top:9px;flex-wrap:wrap}
+.ptag{font-family:var(--hm);font-size:8px;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:20px;border:1px solid}
+.pj-private-strip{display:flex;align-items:center;gap:6px;margin-top:11px;padding-top:10px;border-top:1px solid rgba(90,64,128,.2);font-family:var(--hm);font-size:9px;color:var(--dimmer);letter-spacing:1px}
+.pj-private-strip span{opacity:.5}
+
+#services{background:var(--void)}
+.srv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:11px}
+.srvc{background:rgba(255,255,255,.02);border:1px solid rgba(168,85,247,.08);border-radius:13px;padding:18px 15px;transition:transform .2s,border-color .2s;position:relative;overflow:hidden}
+.srvc::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--p2),transparent);opacity:0;transition:opacity .3s}
+.srvc:hover{transform:translateY(-3px);border-color:rgba(192,132,252,.24)}
+.srvc:hover::before{opacity:1}
+.srv-ic{font-size:26px;margin-bottom:9px;display:block}
+.srv-title{font-family:var(--hf);font-size:12px;font-weight:700;color:var(--text);margin-bottom:6px}
+.srv-desc{font-size:11px;color:var(--dim);line-height:1.65;font-family:var(--hm)}
+
+#contact{background:linear-gradient(180deg,var(--void),var(--deep))}
+.ct-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:16px}
+.ct-info{background:rgba(255,255,255,.02);border:1px solid rgba(168,85,247,.1);border-radius:14px;padding:24px;position:relative;overflow:hidden}
+.ct-info::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--p2),var(--pink),transparent)}
+.ct-title{font-family:var(--hf);font-size:15px;font-weight:700;color:#fff;margin-bottom:8px;letter-spacing:1px}
+.ct-txt{font-family:var(--hm);font-size:11px;line-height:1.8;color:var(--dim);margin-bottom:18px;padding-left:10px;border-left:2px solid rgba(192,132,252,.25)}
+.chs{display:flex;flex-direction:column;gap:9px}
+.ch{display:flex;align-items:center;gap:9px;font-family:var(--hm);font-size:10px;color:var(--dim)}
+.ch-ic{width:28px;height:28px;background:rgba(168,85,247,.07);border:1px solid rgba(168,85,247,.14);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+.ch a{color:var(--cyan);text-decoration:none}
+.ch a:hover{opacity:.7}
+.ct-planet{font-size:80px;text-align:center;margin-top:14px;filter:drop-shadow(0 0 18px rgba(124,58,237,.35));animation:drift 8s ease-in-out infinite}
+.ct-form{background:rgba(255,255,255,.02);border:1px solid rgba(168,85,247,.1);border-radius:14px;padding:24px;position:relative;overflow:hidden}
+.ct-form::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),var(--p3),transparent)}
+.cf{display:flex;flex-direction:column;gap:11px}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.fg{display:flex;flex-direction:column;gap:4px}
+.fg label{font-family:var(--hm);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--dimmer)}
+.fg input,.fg textarea{background:rgba(255,255,255,.03);border:1px solid rgba(168,85,247,.14);border-radius:8px;padding:9px 11px;font-family:var(--hm);font-size:11px;color:var(--text);outline:none;transition:border-color .2s;resize:none}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.16)}
+.fg input:focus,.fg textarea:focus{border-color:var(--p3);box-shadow:0 0 8px rgba(192,132,252,.1)}
+.btn-tx{font-family:var(--hm);font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:10px 20px;border-radius:8px;cursor:pointer;border:none;background:linear-gradient(90deg,var(--p1),var(--p2));color:#fff;box-shadow:0 0 14px rgba(124,58,237,.3);transition:all .2s;align-self:flex-start}
+.btn-tx:hover{box-shadow:0 0 26px rgba(168,85,247,.5);transform:translateY(-2px)}
+
+footer{background:rgba(13,5,32,.95);border-top:1px solid rgba(168,85,247,.1);padding:16px 40px;display:flex;justify-content:space-between;align-items:center;font-family:var(--hm);font-size:9px;color:var(--dimmer);letter-spacing:1.5px;position:relative;z-index:1;flex-wrap:wrap;gap:8px}
+footer span{background:linear-gradient(90deg,var(--pink),var(--p3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.foot-right{display:flex;gap:14px}
+.foot-right a{color:var(--dimmer);text-decoration:none;transition:color .2s}
+.foot-right a:hover{color:var(--p3)}
+
+.fi{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+.fi.vis{opacity:1;transform:translateY(0)}
+.fi2{opacity:0;transform:translateY(14px);transition:opacity .55s ease .1s,transform .55s ease .1s}
+.fi2.vis{opacity:1;transform:translateY(0)}
+
+@media(max-width:740px){
+  nav{padding:9px 14px}.nav-links{display:none}
+  section{padding:42px 16px}
+  #hero{grid-template-columns:1fr;padding-top:58px;padding-left:16px;padding-right:16px;gap:20px;min-height:auto}
+  .hero-cards{flex-direction:row;justify-content:center}
+  .hcard-lg{width:95px;height:115px}.hcard-sm{width:80px;height:100px}
+  .about-grid,.ct-grid{grid-template-columns:1fr}
+  .fr{grid-template-columns:1fr}
+  footer{justify-content:center;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<div class="cosmic-bg">
+  <div class="cb-grad"></div>
+  <div class="stars"></div>
+  <div class="orb orb1"></div><div class="orb orb2"></div>
+  <div class="orb orb3"></div><div class="orb orb4"></div>
+  <div class="deco-ufo">🛸</div>
+  <div class="deco-rocket">🚀</div>
+</div>
+
+<nav>
+  <a href="#hero" class="nav-logo">SB · CANARIA</a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="#contact" class="nav-cta">Open to Work</a>
+</nav>
+
+<section id="hero">
+  <span class="hero-sparkle sp1">✦</span><span class="hero-sparkle sp2">✧</span>
+  <span class="hero-sparkle sp3">✦</span><span class="hero-sparkle sp4">✧</span>
+  <div class="fi">
+    <div class="hero-badge">BS Information Technology · 4th Year Graduating</div>
+    <h1 class="hn">
+      <span class="l1">Hello, I'm</span>
+      <span class="l2">Shandy Blue<br>Canaria</span>
+      <span class="l3">canaria.exe &nbsp;·&nbsp; Philippines 🇵🇭</span>
+    </h1>
+    <p class="hero-sub">An IT student passionate about crafting <strong>practical &amp; innovative digital solutions</strong> — building systems and applications that solve real-world problems and improve efficiency for users.</p>
+    <div class="hero-btns">
+      <a href="#projects" class="hbtn hbtn-fill">✦ View My Projects</a>
+      <a href="#contact" class="hbtn hbtn-out">Let's Connect →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-n">4th</div><div class="hstat-l">Year Level</div></div>
+      <div class="hstat-sep"></div>
+      <div class="hstat"><div class="hstat-n">IT</div><div class="hstat-l">Degree</div></div>
+      <div class="hstat-sep"></div>
+      <div class="hstat"><div class="hstat-n">PHP</div><div class="hstat-l">Main Stack</div></div>
+      <div class="hstat-sep"></div>
+      <div class="hstat"><div class="hstat-n">2025</div><div class="hstat-l">Graduating</div></div>
+    </div>
+  </div>
+  <div class="hero-cards fi2">
+    <div class="hcard hcard-lg hc1"><div class="hcard-scan"></div><div class="hcard-overlay"></div>⚡<div class="hcard-label">Web Dev</div></div>
+    <div class="hcard hcard-sm hc2"><div class="hcard-scan"></div><div class="hcard-overlay"></div>🌐<div class="hcard-label">Systems</div></div>
+    <div class="hcard hcard-sm hc3"><div class="hcard-scan"></div><div class="hcard-overlay"></div>🗄️<div class="hcard-label">Databases</div></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="sh fi">
+    <span class="sn">✦ 01 — About Me</span>
+    <h2 class="st">The mind behind <em>the solutions</em></h2>
+    <p class="sdesc">An IT student who turns real-world problems into elegant digital systems — from web apps to databases to full-stack platforms.</p>
+    <div class="sline"><div class="sline-bar"></div><div class="sline-dot"></div></div>
+  </div>
+  <div class="about-grid fi2">
+    <div class="about-main">
+      <div class="ag"></div>
+      <div class="gbadge">🎓 4th Year · Graduating 2025</div>
+      <div class="av-row">
+        <div class="av">SB</div>
+        <div><div class="av-name">Shandy Blue P. Canaria</div><div class="av-role">&gt; IT_STUDENT &amp; ASPIRING_DEVELOPER</div></div>
+      </div>
+      <p class="bio">An <strong>Information Technology student</strong> passionate about creating practical and innovative digital solutions. I enjoy developing systems and applications that solve real-world problems and improve efficiency for users.</p>
+      <p class="bio">Experienced in <strong>web development, system design, database management, and software development</strong> using VS Code, Laragon, and modern web technologies — particularly interested in building user-friendly systems that help businesses and communities.</p>
+      <p class="bio">As an aspiring IT professional, I continuously seek to <strong>expand my technical skills, learn emerging technologies, and create impactful projects.</strong></p>
+      <div class="dets">
+        <div class="det"><span class="dk">COURSE:</span><span class="dv">BS Information Technology</span></div>
+        <div class="det"><span class="dk">YEAR:</span><span class="dv">4th Year · Graduating 2025</span></div>
+        <div class="det"><span class="dk">FOCUS:</span><span class="dv">Web Dev · System Design · Databases</span></div>
+        <div class="det"><span class="dk">TOOLS:</span><span class="dv">VS Code, Laragon, Modern Web Tech</span></div>
+        <div class="det"><span class="dk">EMAIL:</span><span class="dv"><a href="mailto:sbc.canaria@gmail.com">sbc.canaria@gmail.com</a></span></div>
+        <div class="det"><span class="dk">LINKEDIN:</span><span class="dv"><a href="https://linkedin.com/in/shandy-blue-canaria-1025002a5/" target="_blank">/in/shandy-blue-canaria</a></span></div>
+        <div class="det"><span class="dk">GITHUB:</span><span class="dv"><a href="https://github.com/Shandy-Blue" target="_blank">github.com/Shandy-Blue</a></span></div>
+      </div>
+    </div>
+    <div class="stat-stack">
+      <div class="asc"><span class="asc-ic">🌐</span><div class="asc-label">Web Development</div></div>
+      <div class="asc"><span class="asc-ic">🗄️</span><div class="asc-label">Database Design</div></div>
+      <div class="asc"><span class="asc-ic">🏗️</span><div class="asc-label">System Design</div></div>
+      <div class="asc"><span class="asc-ic">📱</span><div class="asc-label">Mobile Dev</div></div>
+      <div class="asc"><span class="asc-ic">💡</span><div class="asc-label">Problem Solver</div></div>
+      <div class="asc"><span class="asc-ic">🚀</span><div class="asc-label">Fast Learner</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="sh fi">
+    <span class="sn">✦ 02 — Skills Database</span>
+    <h2 class="st">Tech stack &amp; <em>capabilities</em></h2>
+    <p class="sdesc">Technologies and tools I use daily to build functional, efficient, and scalable digital solutions.</p>
+    <div class="sline"><div class="sline-bar"></div><div class="sline-dot"></div></div>
+  </div>
+  <div class="sk-grid fi2" id="skillsGrid"></div>
+</section>
+
+<section id="projects">
+  <div class="sh fi">
+    <span class="sn">✦ 03 — Project Archives</span>
+    <h2 class="st">Things I've <em>built &amp; shipped</em></h2>
+    <p class="sdesc">A collection of academic and personal projects spanning web systems, mobile apps, and assistive technology. All repositories are private.</p>
+    <div class="sline"><div class="sline-bar"></div><div class="sline-dot"></div></div>
+  </div>
+  <div class="pj-grid fi2" id="projGrid"></div>
+</section>
+
+<section id="services">
+  <div class="sh fi">
+    <span class="sn">✦ 04 — What I Do</span>
+    <h2 class="st">Services &amp; <em>expertise</em></h2>
+    <p class="sdesc">Areas where I contribute as an aspiring IT professional — from building systems to designing interfaces to managing data.</p>
+    <div class="sline"><div class="sline-bar"></div><div class="sline-dot"></div></div>
+  </div>
+  <div class="srv-grid fi2" id="srvGrid"></div>
+</section>
+
+<section id="contact">
+  <div class="sh fi">
+    <span class="sn">✦ 05 — Open Channel</span>
+    <h2 class="st">Let's build <em>something meaningful</em></h2>
+    <p class="sdesc">Currently open to internship opportunities, project collaborations, and entry-level IT roles.</p>
+    <div class="sline"><div class="sline-bar"></div><div class="sline-dot"></div></div>
+  </div>
+  <div class="ct-grid fi2">
+    <div class="ct-info">
+      <div class="ct-title">Get in Touch ✦</div>
+      <p class="ct-txt">Whether you want to collaborate on a project, discuss ideas, or just say hello — I'd love to connect. Let's create digital solutions that make a difference.</p>
+      <div class="chs">
+        <div class="ch"><div class="ch-ic">✉️</div><a href="mailto:sbc.canaria@gmail.com">sbc.canaria@gmail.com</a></div>
+        <div class="ch"><div class="ch-ic">💼</div><a href="https://linkedin.com/in/shandy-blue-canaria-1025002a5/" target="_blank">linkedin.com/in/shandy-blue-canaria</a></div>
+        <div class="ch"><div class="ch-ic">🐙</div><a href="https://github.com/Shandy-Blue" target="_blank">github.com/Shandy-Blue</a></div>
+        <div class="ch"><div class="ch-ic">📍</div><span>Philippines 🇵🇭</span></div>
+      </div>
+      <div class="ct-planet">🪐</div>
+    </div>
+    <div class="ct-form">
+      <div class="cf">
+        <div class="fr">
+          <div class="fg"><label>Name</label><input type="text" placeholder="Juan dela Cruz"/></div>
+          <div class="fg"><label>Email</label><input type="email" placeholder="juan@email.com"/></div>
+        </div>
+        <div class="fg"><label>Subject</label><input type="text" placeholder="Collaboration · Internship · Project"/></div>
+        <div class="fg"><label>Message</label><textarea rows="6" placeholder="Hi Shandy, I'd like to..."></textarea></div>
+        <button class="btn-tx" onclick="handleSend()">✦ Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>SHANDY BLUE P. CANARIA</span>&nbsp;· BS INFORMATION TECHNOLOGY · © 2025
+  <div class="foot-right">
+    <a href="https://github.com/Shandy-Blue" target="_blank">GITHUB</a>
+    <a href="https://linkedin.com/in/shandy-blue-canaria-1025002a5/" target="_blank">LINKEDIN</a>
+    <a href="mailto:sbc.canaria@gmail.com">EMAIL</a>
+  </div>
+</footer>
+
+<script>
+const skills=[
+  {name:"HTML & CSS",icon:"🎨",pct:85,color:"#f472b6",tag:"FRONTEND"},
+  {name:"JavaScript",icon:"⚡",pct:75,color:"#fbbf24",tag:"SCRIPTING"},
+  {name:"PHP",icon:"🐘",pct:78,color:"#c084fc",tag:"BACKEND"},
+  {name:"MySQL / SQL",icon:"🗄️",pct:80,color:"#67e8f9",tag:"DATABASE"},
+  {name:"Laravel",icon:"🔧",pct:68,color:"#f472b6",tag:"FRAMEWORK"},
+  {name:"System Design",icon:"🏗️",pct:72,color:"#4ade80",tag:"ARCHITECT"},
+  {name:"VS Code",icon:"💻",pct:90,color:"#67e8f9",tag:"TOOLING"},
+  {name:"Laragon",icon:"🦁",pct:85,color:"#fbbf24",tag:"DEV ENV"},
+  {name:"Git & GitHub",icon:"🌿",pct:74,color:"#4ade80",tag:"VCS"},
+  {name:"DB Design",icon:"📊",pct:77,color:"#c084fc",tag:"MODELING"},
+];
+const sg=document.getElementById("skillsGrid");
+skills.forEach(s=>{
+  sg.innerHTML+=`<div class="skc"><span class="sk-ic">${s.icon}</span><div class="sk-nm">${s.name}</div><div class="sk-bar"><div class="sk-fill" style="width:${s.pct}%;background:${s.color};box-shadow:0 0 5px ${s.color}44"></div></div><div class="sk-foot"><span class="sk-p">${s.pct}%</span><span class="sk-tag" style="color:${s.color}">${s.tag}</span></div></div>`;
+});
+
+const projects=[
+  {emoji:"⚡",bg:"linear-gradient(145deg,#2d1b69,#5b21b6,#9333ea,#be185d)",title:"QEra",sub:"Capstone Web-Based System",desc:"A capstone system engineered to deliver practical IT solutions for real-world operational challenges. Built with PHP and MySQL, focused on streamlined, user-friendly workflows that improve organizational efficiency.",tags:[{l:"PHP",c:"#c084fc",bc:"rgba(192,132,252,.25)"},{l:"MySQL",c:"#67e8f9",bc:"rgba(103,232,249,.22)"},{l:"Web App",c:"#4ade80",bc:"rgba(74,222,128,.22)"},{l:"Capstone",c:"#fbbf24",bc:"rgba(251,191,36,.25)"}]},
+  {emoji:"🍽️",bg:"linear-gradient(145deg,#7c2d12,#c2410c,#ea580c,#92400e)",title:"FoodFolio",sub:"Mobile Inventory Management App",desc:"A mobile application for managing food inventory — tracking stock levels, expiry dates, and ingredient usage to reduce waste and improve kitchen efficiency.",tags:[{l:"Mobile",c:"#fb923c",bc:"rgba(251,146,60,.25)"},{l:"Inventory",c:"#fbbf24",bc:"rgba(251,191,36,.22)"}]},
+  {emoji:"🎫",bg:"linear-gradient(145deg,#1e3a5f,#1d4ed8,#6d28d9,#4338ca)",title:"Web-Based Ticketing System",sub:"Support & Issue Management",desc:"A web platform for submitting, tracking, and resolving support tickets — streamlining communication between users and IT support teams with status updates and priority queuing.",tags:[{l:"Web App",c:"#67e8f9",bc:"rgba(103,232,249,.22)"},{l:"PHP",c:"#c084fc",bc:"rgba(192,132,252,.25)"}]},
+  {emoji:"♿",bg:"linear-gradient(145deg,#14532d,#15803d,#0e7490,#1e40af)",title:"MobiLink",sub:"Multi-Controller Wheelchair System",desc:"An assistive technology project featuring a multi-controller wheelchair with integrated obstacle avoidance sensors and beacon-based indoor localization for enhanced mobility and independence.",tags:[{l:"IoT",c:"#4ade80",bc:"rgba(74,222,128,.22)"},{l:"Hardware",c:"#67e8f9",bc:"rgba(103,232,249,.22)"},{l:"Assistive Tech",c:"#f472b6",bc:"rgba(244,114,182,.22)"}]},
+];
+const pg=document.getElementById("projGrid");
+projects.forEach(p=>{
+  const tgs=p.tags.map(t=>`<span class="ptag" style="background:rgba(0,0,0,.2);color:${t.c};border-color:${t.bc}">${t.l}</span>`).join("");
+  pg.innerHTML+=`<div class="pjc"><div class="pj-thumb" style="background:${p.bg}"><div class="pj-scan"></div>${p.emoji}<div class="pj-lock">🔒 Private</div></div><div class="pj-body"><div class="pj-title">${p.title}</div><div class="pj-sub">${p.sub}</div><div class="pj-desc">${p.desc}</div><div class="pj-tags">${tgs}</div><div class="pj-private-strip">🔒 <span>Private Repository · Not publicly available</span></div></div></div>`;
+});
+
+const services=[
+  {ic:"🌐",title:"Web Development",desc:"Building responsive, functional web apps using HTML, CSS, JavaScript, and PHP — from landing pages to full management systems."},
+  {ic:"🏗️",title:"System Design",desc:"Architecting efficient software systems with clean logic, proper data flow, and scalable structure tailored to real business needs."},
+  {ic:"🗄️",title:"Database Management",desc:"Designing and managing MySQL databases — ERDs, normalization, queries, and backend data integration."},
+  {ic:"⚙️",title:"Backend Development",desc:"Server-side development with PHP and Laravel — CRUD operations, authentication, APIs, and business logic implementation."},
+  {ic:"📱",title:"Mobile Development",desc:"Developing practical mobile applications focused on inventory management and real-world utility."},
+  {ic:"♿",title:"Assistive Technology",desc:"Building accessible, impactful solutions — including IoT-integrated systems that improve mobility and independence for users with disabilities."},
+];
+const srvg=document.getElementById("srvGrid");
+services.forEach(s=>{
+  srvg.innerHTML+=`<div class="srvc"><span class="srv-ic">${s.ic}</span><div class="srv-title">${s.title}</div><div class="srv-desc">${s.desc}</div></div>`;
+});
+
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("vis")})},{threshold:0.06});
+document.querySelectorAll(".fi,.fi2").forEach(el=>obs.observe(el));
+
+document.querySelectorAll("a[href^='#']").forEach(a=>{
+  a.addEventListener("click",e=>{
+    const t=document.querySelector(a.getAttribute("href"));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:"smooth"})}
+  });
+});
+
+function handleSend(){
+  const b=document.querySelector(".btn-tx");
+  b.textContent="✦ Message Sent!";
+  b.style.background="linear-gradient(90deg,#16a34a,#15803d)";
+  setTimeout(()=>{b.textContent="✦ Send Message →";b.style.background=""},3200);
+}
+</script>
+</body>
+</html>
